@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sufyan Private Gallery</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#111;
+color:white;
+text-align:center;
+}
+
+#login{
+margin-top:120px;
+}
+
+input{
+padding:12px;
+width:220px;
+border:none;
+border-radius:10px;
+font-size:18px;
+}
+
+button{
+padding:12px 25px;
+background:#00b894;
+border:none;
+border-radius:10px;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+#gallery{
+display:none;
+padding:20px;
+}
+
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+
+.gallery img{
+width:250px;
+height:250px;
+object-fit:cover;
+border-radius:15px;
+border:3px solid white;
+cursor:pointer;
+transition:.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+#viewer{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.95);
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+#viewer img{
+max-width:90%;
+max-height:90%;
+border-radius:15px;
+}
+
+.close{
+position:absolute;
+top:20px;
+right:30px;
+font-size:40px;
+cursor:pointer;
+color:white;
+}
+</style>
+</head>
+
+<body>
+
+<div id="login">
+<h1>🔒 Sufyan Private Gallery</h1>
+
+<input type="password" id="pass" placeholder="Enter Password">
+
+<br><br>
+
+<button onclick="login()">Login</button>
+
+<p id="msg"></p>
+</div>
+
+<div id="gallery">
+
+<h1>Welcome Sufyan ❤️</h1>
+
+<div class="gallery">
+
+<img src="64344.png" onclick="openImg(this.src)">
+<img src="64197.jpg" onclick="openImg(this.src)">
+<img src="63818.jpg" onclick="openImg(this.src)">
+
+</div>
+
+</div>
+
+<div id="viewer">
+<span class="close" onclick="closeImg()">&times;</span>
+<img id="big">
+</div>
+
+<script>
+
+function login(){
+
+if(document.getElementById("pass").value=="1234"){
+document.getElementById("login").style.display="none";
+document.getElementById("gallery").style.display="block";
+}else{
+document.getElementById("msg").innerHTML="❌ Wrong Password";
+}
+
+}
+
+function openImg(src){
+document.getElementById("viewer").style.display="flex";
+document.getElementById("big").src=src;
+}
+
+function closeImg(){
+document.getElementById("viewer").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
